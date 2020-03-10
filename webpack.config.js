@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    main: ["./src/index.tsx"]
+    typescript: ["./src/typescript-test/task.ts"]
   },
 
   output: {
@@ -28,7 +28,6 @@ module.exports = {
         test: /\.tsx?$/, 
         loader: "ts-loader" ,
         options: {
-          transpileOnly: true,
           experimentalWatchApi: true,
         }
       }
