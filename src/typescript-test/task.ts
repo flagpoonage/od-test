@@ -12,6 +12,21 @@ that are matched, are then passed to the mapping function to be
 transformed. The output of the mapping function is returned to 
 the caller of the filterMap function.
 
+Here is an example of it's use. The following statement:
+
+[1,2,3]
+  .filter(a => a % 2 === 0)
+  .map(b => b * 2)
+
+Would translate to this:
+
+filterMap(
+  [1,2,3],
+  a => a % 2 === 0,
+  b => b * 2
+);
+
+--------------
 
 TASK:
 
@@ -34,8 +49,10 @@ export const filterMap = (array, filterFn, mapFn) => {
 };
 
 
-//---------------------------------------------------------
-// DO NOT CHANGE THE CODE BELOW
+//---------------------------------------
+// DO NOT CHANGE THE CODE BELOW THIS LINE
+//---------------------------------------
+
 import { EntityOutput, arrayOne, arrayTwo } from './setup';
 
 const resultsOne = filterMap(
