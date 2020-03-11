@@ -1,7 +1,8 @@
+import './style/reset.pcss';
+
 import * as React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { Main } from './components/main';
+import { Main } from './main';
 
 document.addEventListener('DOMContentLoaded', () => {
   render(

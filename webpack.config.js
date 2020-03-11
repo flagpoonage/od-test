@@ -4,7 +4,7 @@ module.exports = {
   entry: {
     typescript: ["./src/typescript-test/task.ts"],
     filter: ["./src/filter-test/task.ts"],
-    redux: ["./src/redux-test/index.tsx"]
+    react: ["./src/react-test/index.tsx"]
   },
 
   output: {

@@ -35,7 +35,9 @@ all typescript errors and warnings are eliminated. For the
 best possible score to this question, implement it with no 
 casts, and no usage of the 'any' type. The filterMap function
 should be able to handle an array of any type, not just the 
-EntityOne and EntityTwo types used below.
+EntityOne and EntityTwo types used below. The type of the
+filterMap function should be the same as that of the internal
+mapFn.
 
 */
 
