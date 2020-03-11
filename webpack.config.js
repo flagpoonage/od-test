@@ -1,6 +1,10 @@
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 module.exports = {
   entry: {
-    typescript: ["./src/typescript-test/task.ts"]
+    typescript: ["./src/typescript-test/task.ts"],
+    filter: ["./src/filter-test/task.ts"],
+    redux: ["./src/redux-test/index.tsx"]
   },
 
   output: {
@@ -28,11 +32,16 @@ module.exports = {
         test: /\.tsx?$/, 
         loader: "ts-loader" ,
         options: {
+          transpileOnly: true,
           experimentalWatchApi: true,
         }
       }
     ]
   },
+
+  plugins: [
+    new ForkTsCheckerWebpackPlugin(),
+  ],
 
   node: {
     fs: 'empty'

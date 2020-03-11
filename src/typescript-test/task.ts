@@ -33,8 +33,9 @@ TASK:
 Using generics, define the typings for this function so that
 all typescript errors and warnings are eliminated. For the 
 best possible score to this question, implement it with no 
-casts, and no usage of the 'any' type. You may use the number
-type, and the boolean type, but all other types should be generic. 
+casts, and no usage of the 'any' type. The filterMap function
+should be able to handle an array of any type, not just the 
+EntityOne and EntityTwo types used below.
 
 */
 
