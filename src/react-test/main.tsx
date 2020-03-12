@@ -12,8 +12,8 @@ type BoxDescription = {
 
 const generateBox = () => ({
   color: generateRGB(),
-  left: randomMax(98),
-  top: randomMax(98)
+  left: randomMax(96),
+  top: randomMax(96)
 });
 
 const initialState = [
@@ -30,13 +30,31 @@ export function Main () {
   const [ boxesState, setBoxesState ] = useState<BoxDescription[]>(initialState);
   const [ cursorState, setCursorState ] = useState<{ x: number, y: number, display: string  }>({ x: 0, y: 0, display: '' });
 
-  const onMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+  const onMouseMove = React.useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     event.persist();
     window.requestAnimationFrame(() => {
-      let target = (event.target as HTMLDivElement);
-      setCursorState({ x: event.pageX, y: event.pageY, display: target.classList.contains('box') ? target.style.backgroundColor : '' });
+      const target = (event.target as HTMLDivElement);
+      const is_box = target.classList.contains('box');
+
+      let x = event.pageX;
+      let y = event.pageY;
+
+      if (is_box) {
+        const bounds = target.getBoundingClientRect();
+        const w2 = bounds.width / 2;
+        const h2 = bounds.height / 2;
+
+        const center = { x: bounds.left + w2, y: bounds.top + h2 };
+
+        x = center.x - ((center.x - x) / 5);
+        y = center.y - ((center.y - y) / 5);
+
+        // console.log(x, y);
+      }
+
+      setCursorState({ x, y, display: target.classList.contains('box') ? target.style.backgroundColor : '' });
     })
-  }
+  }, [setCursorState]);
 
   return (
     <div className="main" onMouseMove={onMouseMove}>
